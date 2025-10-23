@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>XS Scripts</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(-45deg, #090909, #200034, #003030, #1a1a1a);
+      background-size: 400% 400%;
+      animation: gradient 12s ease infinite;
+      color: white;
+    }
+
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header {
+      text-align: center;
+      padding: 100px 20px 40px 20px;
+    }
+
+    header h1 {
+      font-size: 4em;
+      color: #00ffe5;
+      text-shadow: 0 0 25px #00ffe5, 0 0 10px #00ffbf;
+      animation: pulse 2s infinite alternate;
+    }
+
+    @keyframes pulse {
+      from { text-shadow: 0 0 15px #00ffe5; }
+      to { text-shadow: 0 0 35px #00fff2, 0 0 15px #00ffbf; }
+    }
+
+    main {
+      width: 85%;
+      max-width: 900px;
+      margin: 0 auto 80px auto;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(0, 255, 230, 0.2);
+      padding: 30px 40px;
+      backdrop-filter: blur(10px);
+      transition: 0.3s;
+    }
+
+    h2 {
+      color: #00fff2;
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .item {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(0, 255, 230, 0.3);
+      border-radius: 15px;
+      padding: 15px 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 10px rgba(0, 255, 230, 0.1);
+      transition: 0.3s;
+    }
+
+    .item-title {
+      font-weight: bold;
+      font-size: 1.2em;
+      color: #00ffe5;
+      margin-bottom: 10px;
+    }
+
+    .item-content {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 10px;
+      border-radius: 10px;
+      color: #e0e0e0;
+      font-size: 1em;
+      line-height: 1.5em;
+      min-height: 50px;
+      white-space: pre-wrap;
+      transition: 0.2s;
+    }
+
+    .copy-btn {
+      margin-top: 10px;
+      display: inline-block;
+      padding: 8px 15px;
+      background-color: #00ffe5;
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .copy-btn:hover {
+      background-color: #00fff2;
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: #888;
+      font-size: 0.9em;
+    }
+
+    .edit-notice {
+      text-align: center;
+      color: #0f0;
+      font-size: 0.9em;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>   XS Scripts    <h1>
+  </header>
+
+  <main>
+    <h2>Scripts Publicos</h2>
+    <p class="edit-notice">🔒 Modo edición activado</p>
+
+    <div class="item">
+      <div class="item-title">Grow A Garden:</div>
+      <div class="item-content">
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Omgshit/Scripts/main/MainLoader.lua"))()
+      </div>
+      <button class="copy-btn">Copiar</button>
+    </div>
+
+    <div class="item">
+      <div class="item-title">Build A Boat for Treasure:</div>
+      <div class="item-content">
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/max2007killer/auto-build-not-limit/main/buildaboatv2obs.txt"),true))()
+      </div>
+      <button class="copy-btn">Copiar</button>
+    </div>
+    <div class="item">
+  <div class="item-title">Steal A Brainrot:</div>
+  <div class="item-content">
+por terminar
+  </div>
+  <button class="copy-btn">Copiar</button>
+</div>
+<div class="item">
+  <div class="item-title">Nuevo script:</div>
+  <div class="item-content">
+por terminar
+  </div>
+  <button class="copy-btn">Copiar</button>
+</div>
+<div class="item">
+  <div class="item-title">Nuevo script:</div>
+  <div class="item-content">
+por terminar
+  </div>
+  <button class="copy-btn">Copiar</button>
+</div>
+<div class="item">
+  <div class="item-title">Nuevo script:</div>
+  <div class="item-content">
+por terminar
+  </div>
+  <button class="copy-btn">Copiar</button>
+</div>
+  </main>
+
+  <footer>
+    © 2025 XS.CLAN — powered by XS Clan
+  </footer>
+
+  <script>
+    // Función de copiar
+    document.querySelectorAll(".copy-btn").forEach((btn, index) => {
+      btn.addEventListener("click", () => {
+        const text = document.querySelectorAll(".item-content")[index].innerText;
+        navigator.clipboard.writeText(text).then(() => {
+          btn.textContent = "¡Copiado!";
+          btn.style.backgroundColor = "#0f0";
+          setTimeout(() => {
+            btn.textContent = "Copiar";
+            btn.style.backgroundColor = "#00ffe5";
+          }, 1500);
+        });
+      });
+    });
+
+    // 🔐 Modo administrador secreto
+    const password = "Boost"; // <-- Cambia esto por tu clave personal
+    document.addEventListener("keydown", (e) => {
+      if (e.ctrlKey && e.key.toLowerCase() === "e") {
+        const pass = prompt("Introduce la clave para editar:");
+        if (pass === password) {
+          document.querySelectorAll(".item-content").forEach(el => {
+            el.contentEditable = true;
+            el.style.outline = "1px dashed #00ffcc";
+          });
+          document.querySelector(".edit-notice").style.display = "block";
+          alert("Modo edición activado ✅");
+        } else {
+          alert("Clave incorrecta ❌");
+        }
+      }
+    });
+  </script>
+</body>
+    </html>
